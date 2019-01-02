@@ -1,0 +1,42 @@
+---
+swagger: "2.0"
+info:
+  description: "info: description"
+  version: "0.1"
+  title: "Boston Housing Price"
+host: "localhost:8080"
+basePath: "/v2"
+tags:
+- name: "predict"
+  description: "use a previously trained model to predict a house price"
+schemes:
+- "http"
+paths:
+  /predict:
+    post:
+      tags:
+      - "predict"
+      summary: "make a prediction"
+      description: "uses a pickled model"
+      operationId: "predict_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            house_id:
+              type: "integer"
+              format: "int64"
+            age:
+              type: "integer"
+              example: "int64"
+      responses:
+        200:
+          description: "Successful prediction"
+      x-swagger-router-controller: "swagger_server.controllers.predict_controller"
