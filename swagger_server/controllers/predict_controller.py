@@ -1,3 +1,4 @@
+import os
 import connexion
 import pandas as pd
 import pickle
@@ -19,12 +20,12 @@ def predict_post(body):  # noqa: E501
 
     :rtype: None
     """
-    with open("house_price_model.pickle", 'rb') as handle:
-        house_price_model = (pickle.load(handle))
+
 
     if connexion.request.is_json:
         body = connexion.request.get_json()  # noqa: E501
-    df = pd.DataFrame(body, index=range(len(body) - 1))
+
+    df = pd.DataFrame.from_records(body)
     pred = house_price_model.predict(df[['age']])
     pred = pd.DataFrame(pred, columns=['predicted_price'])
     pred = pd.concat([df, pred], axis=1)
