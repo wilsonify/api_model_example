@@ -1,4 +1,3 @@
----
 swagger: "2.0"
 info:
   description: "info: description"
@@ -56,5 +55,7 @@ paths:
                 type: "integer"
                 format: "int64"
                 example: 24
+        405:
+          description: "Invalid input"
 
       x-swagger-router-controller: "swagger_server.controllers.predict_controller"
