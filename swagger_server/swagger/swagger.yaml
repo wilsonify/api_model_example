@@ -44,12 +44,17 @@ paths:
           schema:
             type: "object"
             properties:
-              code:
+              house_id:
                 type: "integer"
-                format: "int32"
-              type:
-                type: "string"
-              message:
-                type: "string"
+                format: "int64"
+                example: 1001
+              age:
+                type: "integer"
+                format: "int64"
+                example: 54
+              predicted_price:
+                type: "integer"
+                format: "int64"
+                example: 24
 
       x-swagger-router-controller: "swagger_server.controllers.predict_controller"
