@@ -33,10 +33,23 @@ paths:
             house_id:
               type: "integer"
               format: "int64"
+              example: 1001
             age:
               type: "integer"
-              example: "int64"
+              format: "int64"
+              example: 54
       responses:
         200:
-          description: "Successful prediction"
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              code:
+                type: "integer"
+                format: "int32"
+              type:
+                type: "string"
+              message:
+                type: "string"
+
       x-swagger-router-controller: "swagger_server.controllers.predict_controller"
