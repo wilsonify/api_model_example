@@ -1,6 +1,6 @@
 connexion == 1.1.15
 python_dateutil == 2.6.0
 setuptools >= 21.0.0
-numpy
-pandas
-sklearn
+numpy >= 1.15.1
+pandas >= 0.23.4
+sklearn >= 0.0
