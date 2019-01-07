@@ -57,5 +57,4 @@ paths:
                 example: 24
         405:
           description: "Invalid input"
-
       x-swagger-router-controller: "swagger_server.controllers.predict_controller"
